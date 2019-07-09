@@ -16,4 +16,4 @@ You must have Node.js and npm installed on your machine. This project was built 
 - Clone this repo to your machine
 - `cd` into the project folder and run `npm install`
 - Run `npm run dev`
-- Navigate to http://localhost:4100
+- Navigate to http://localhost:5000
