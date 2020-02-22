@@ -1,8 +1,8 @@
-# Svelte 3 Todo List App
+# Cypress Demo
 
-A Todo List Application built with Svelte 3. Tutorial: https://freshman.tech/svelte-todo/
+We put together this repo to demo the [Cypress testing framework](https://www.cypress.io/) to our coworkers.
 
-This project is live at http://svelte3-todo.surge.sh/
+We were looking for a nice ToDo app to help show off how Cypress works, and found this [great Svelte app by Ayooluwa Isaiah](https://freshman.tech/svelte-todo/) which we forked as our starting point.
 
 ## Prerequisites
 
