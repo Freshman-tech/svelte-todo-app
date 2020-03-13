@@ -1,12 +1,12 @@
 <script>
-  import { afterUpdate } from 'svelte';
+  import { afterUpdate } from "svelte";
 
   afterUpdate(() => {
-    document.querySelector('.js-todo-input').focus();
+    document.querySelector(".js-todo-input").focus();
   });
 
   let todoItems = [];
-  let newTodo = '';
+  let newTodo = "";
 
   function addTodo() {
     newTodo = newTodo.trim();
@@ -15,11 +15,11 @@
     const todo = {
       text: newTodo,
       checked: false,
-      id: Date.now(),
+      id: Date.now()
     };
 
     todoItems = [...todoItems, todo];
-    newTodo = '';
+    newTodo = "";
   }
 
   function toggleDone(id) {
@@ -37,23 +37,41 @@
     <h1 class="app-title">todos</h1>
     <ul class="todo-list">
       {#each todoItems as todo (todo.id)}
-        <li class="todo-item {todo.checked ? 'done' : ''}">
-          <input id={todo.id} type="checkbox" />
-          <label for={todo.id} class="tick" on:click={() => toggleDone(todo.id)}></label>
+        <li class="todo-item {todo.checked ? 'done' : ''}" data-cy="todo-item">
+          <input id={todo.id} type="checkbox" data-cy="hidden-checkbox" />
+          <label
+            for={todo.id}
+            class="tick"
+            data-cy="visual-checkbox"
+            on:click={() => toggleDone(todo.id)} />
           <span>{todo.text}</span>
-          <button class="delete-todo" on:click={() => deleteTodo(todo.id)}>
-            <svg><use href="#delete-icon"></use></svg>
+          <button
+            class="delete-todo"
+            on:click={() => deleteTodo(todo.id)}
+            data-cy="delete-button">
+            <svg>
+              <use href="#delete-icon" />
+            </svg>
           </button>
         </li>
       {/each}
     </ul>
     <div class="empty-state">
-      <svg class="checklist-icon"><use href="#checklist-icon"></use></svg>
+      <svg class="checklist-icon">
+        <use href="#checklist-icon" />
+      </svg>
       <h2 class="empty-state__title">Add your first todo</h2>
-      <p class="empty-state__description">What do you want to get done today?</p>
+      <p class="empty-state__description">
+        What do you want to get done today?
+      </p>
     </div>
     <form on:submit|preventDefault={addTodo}>
-      <input class="js-todo-input" type="text" aria-label="Enter a new todo item" placeholder="E.g. Build a web app" bind:value={newTodo}>
+      <input
+        class="js-todo-input"
+        type="text"
+        aria-label="Enter a new todo item"
+        placeholder="E.g. Build a web app"
+        bind:value={newTodo} />
     </form>
   </div>
 </main>
